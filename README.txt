@@ -7,7 +7,7 @@ Tested: PHP 5.2.
 
 
 Description
-Simple Login System for websites. Works whitout MySQL database. 
+Simple Login System for websites. Works without MySQL database. 
 
 Site uses cookies and saves account data to 'acc_list.php' file. 
 
