@@ -1,0 +1,2 @@
+<?php 
+$USN["Admin"] = "Password";

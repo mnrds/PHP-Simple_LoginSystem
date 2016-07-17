@@ -1,0 +1,102 @@
+<?php 
+$userError = '';
+include("acc_list2.php"); 
+if ($_POST["acc"]=="logger") {
+     if ($USN[$_POST["username"]]==$_POST["password"]) {
+          $_SESSION["logged"]=$_POST["username"]; 
+     } else { 
+          $userError = 'Wrong Username/Password';
+     }; 
+}; 
+if (array_key_exists($_SESSION["logged"],$USN)) {
+    echo "<!DOCTYPE html>
+	<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+	<head>
+	<meta http-equiv='content-type' content='text/html;charset=utf-8' />
+	<title>Login - Demo</title>
+	</head>
+	<body>
+		<center>
+		<p>
+			Simple login & register - v.1<BR>
+			Made by <a href='https://github.com/mnrds'>mnrds</a>
+		</p>
+		<p>
+			Welcome<br>
+		</p>
+		<p>
+		- Content here -
+		</p>
+
+	<footer>
+ 	<small>© Copyright 2016, <a href='https://github.com/mnrds'>mnrds</a></small>
+	</footer>
+
+	</center>
+	</body>
+	</html>
+	 ";
+     die;
+
+} else {
+    echo "<!DOCTYPE html>
+	<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+	<head>
+		<meta http-equiv='content-type' content='text/html;charset=utf-8' />
+		<title>Login - Demo</title>
+			
+			<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+			<script>
+			$(document).ready(function(){
+			$('#div2').fadeIn(3000);
+			$('button').click(function(){
+			$('#div1').fadeIn(3000);
+			});
+			});
+			</script>
+		
+	</head>
+	<body>
+		<center>
+		<h3>Simple login & register - v.1</h3>
+		<p>
+		Made by <a href='https://github.com/mnrds'>mnrds</a>
+		</p>
+		<p>You can create account and login. <br>
+		Use <b>"CODE1"</b> for invitation code to register. <br>
+		See source code for this project <a href=''>here</a>. 
+		</p>
+	
+	<div id='div2' style='width:250px;height:300px;display:none;background-color:white;'>
+    <form action='{$_SERVER['PHP_SELF']}' method='post'><input type='hidden' name='acc' value='logger'> 
+    <label for='username'></label><input type='text' name='username' /><br>
+    <label for='password'></label><input type='password' name='password' /><br>
+	<div class='error'>$userError</div><br>
+    <input type='submit' value='Login' /></form>
+	
+	<p>New user? <br><button>Register</button></p>
+
+	<div id='div1' style='width:250px;height:300px;display:none;background-color:white;'>
+		<form name='reg' action='register.php' method='post'>
+		<label for='account'></label><input type='text' value='Account name' name='account' /><br>
+		<label for='pass'></label><input type='password' value='Password' name='pass' /><br>
+		Invitation code: CODE1 <br>
+		<label for='code'></label><input type='text' value='CODE1' name='code' /><br>
+		<input type='submit' value='Register' name='sub2' />
+		</form>
+		
+		</form>
+	</div><br>
+
+	<footer>
+ 	<small>© Copyright 2016, <a href='https://github.com/mnrds'>mnrds</a></small>
+	</footer>
+	
+	</center>
+	</body>
+	</html>
+	
+	";
+
+}; 
+?>
