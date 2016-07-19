@@ -18,18 +18,18 @@ if (array_key_exists($_SESSION["logged"],$USN)) {
 	<body>
 		<center>
 		<p>
-			Simple login & register - v.1<BR>
+			Simple login & register - version 1.1<BR>
 			Made by <a href='https://github.com/mnrds'>mnrds</a>
 		</p>
 		<p>
 			Welcome<br>
 		</p>
 		<p>
-		- Content here -
+		- Place your content here -
 		</p>
 
 	<footer>
- 	<small>© Copyright 2016, <a href='https://github.com/mnrds'>mnrds</a></small>
+ 	<small>&#169; Copyright 2016, Yoursite</small>
 	</footer>
 
 	</center>
@@ -58,19 +58,19 @@ if (array_key_exists($_SESSION["logged"],$USN)) {
 	</head>
 	<body>
 		<center>
-		<h3>Simple login & register - v.1</h3>
+		<h3>Simple login & register - version 1.1</h3>
 		<p>
 		Made by <a href='https://github.com/mnrds'>mnrds</a>
 		</p>
 		<p>You can create account and login. <br>
-		Use <b>"CODE1"</b> for invitation code to register. <br>
-		See source code for this project <a href=''>here</a>. 
+		Use <b>'CODE1'</b> for invitation code to register. <br>
+		See source code for this project <a href='https://github.com/mnrds/PHP-Simple_LoginSystem'>here</a>. 
 		</p>
 	
 	<div id='div2' style='width:250px;height:300px;display:none;background-color:white;'>
     <form action='{$_SERVER['PHP_SELF']}' method='post'><input type='hidden' name='acc' value='logger'> 
-    <label for='username'></label><input type='text' name='username' /><br>
-    <label for='password'></label><input type='password' name='password' /><br>
+    <label for='username'></label><input type='text' name='username' value='Username' /><br>
+    <label for='password'></label><input type='password' name='password' value='Password'/><br>
 	<div class='error'>$userError</div><br>
     <input type='submit' value='Login' /></form>
 	
@@ -89,7 +89,7 @@ if (array_key_exists($_SESSION["logged"],$USN)) {
 	</div><br>
 
 	<footer>
- 	<small>© Copyright 2016, <a href='https://github.com/mnrds'>mnrds</a></small>
+ 	<small>&#169; Copyright 2016, Yoursite</small>
 	</footer>
 	
 	</center>

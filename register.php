@@ -1,4 +1,11 @@
 <?php
+	// Simple PHP LoginSystem
+	// by mnrds
+	//
+	// Version 1.1
+	// https://github.com/mnrds/PHP-Simple_LoginSystem
+	// ----------------------------------------------------------
+
 	$acc2 = $_POST['account'];
 	$pass2  = $_POST['pass'];
 	$rcode  = $_POST['code'];
@@ -6,7 +13,7 @@
 	// Code for account making
 	$ccode = 'CODE1';
 	
-	// Name taken?
+	// Username taken?
 	$search = "$acc2";
 	$lines = file('acc_list2.php');
 	foreach($lines as $line){
@@ -24,12 +31,12 @@
 	
 	// check if name only contains letters and whitespace
 	// Username check
-	if (!preg_match("/^[a-zA-Z ]*$/",$acc2)) {
+	if (!preg_match("/^[a-z0-9.]+$/i",$acc2)) {
 		echo "Only letters and white space allowed. ";
 		exit();
     	}
     	// Password check
-	if (!preg_match("/^[a-zA-Z ]*$/",$pass2)) {
+	if (!preg_match("/^[a-z0-9.]+$/i",$pass2)) {
 		echo "Only letters and white space allowed. ";
 		exit();
 	}
@@ -56,7 +63,7 @@
 	$logitUSN = "USN[";
 	$logitACC = "$acc2";
 	$logit4 = "] = ";
-	$logit5 = "$acc2";
+	$logit5 = "$pass2";
 	$logit6 = ";";
 
   	// Fixing " and ' 
