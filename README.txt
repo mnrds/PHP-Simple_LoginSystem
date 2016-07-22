@@ -26,6 +26,7 @@ Changelog:
 	V1.2
 	- Added logout
 	- Cookies keep you logged for 15 min
+	- Added 'page2.html'
 	
 	V1.1
 	- Added demo: http://tinyurl.com/simplePHPlogin
