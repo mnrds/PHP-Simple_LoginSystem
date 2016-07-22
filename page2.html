@@ -1,0 +1,45 @@
+<?php 
+$userError = '';
+
+
+// If cookie exists -> show page
+// Else -> send index.html
+
+if(isset($_COOKIE['clog'])) {
+    echo "<!DOCTYPE html>
+	<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+	<head>
+	<meta http-equiv='content-type' content='text/html;charset=utf-8' />
+	<title>Login - Demo</title>
+	</head>
+	<body>
+		<center>
+		<p>
+			Simple login & register - version 1.2<BR>
+			Made by <a href='https://github.com/mnrds'>mnrds</a>
+		</p>
+		<p>
+			Welcome to page2.html<br>
+			Go <a href='index.html'>back</a>. 
+		</p>
+		<p>
+		asdf<br>
+		asdf
+		</p>
+
+
+	<footer>
+ 	<small>&#169; Copyright 2016, Yoursite</small>
+	</footer>
+
+	</center>
+	</body>
+	</html>
+	 ";
+     die;
+
+} else {
+	echo "You need to login to see this page.";
+	echo "Login <a href='index.html'>here</a>. ";
+}; 
+?>

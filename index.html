@@ -1,14 +1,24 @@
 <?php 
 $userError = '';
+
+// Logout, clear cookies
+if ($_POST["out"]=="outter") {
+	unset($_COOKIE['clog']);
+    	setcookie('clog', '', time() - 3600, '/');
+}
+
+// Login if cookie exists, else show login
 include("acc_list2.php"); 
 if ($_POST["acc"]=="logger") {
-     if ($USN[$_POST["username"]]==$_POST["password"]) {
-          $_SESSION["logged"]=$_POST["username"]; 
-     } else { 
-          $userError = 'Wrong Username/Password';
-     }; 
+	if ($USN[$_POST["username"]]==$_POST["password"]) {
+		$_SESSION["logged"]=$_POST["username"]; 
+		setcookie("clog", clog, time()+900);
+		header("Refresh:0; url=index.html");
+	} else { 
+        	$userError = 'Wrong Username/Password';
+	}; 
 }; 
-if (array_key_exists($_SESSION["logged"],$USN)) {
+if(isset($_COOKIE['clog'])) {
     echo "<!DOCTYPE html>
 	<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
 	<head>
@@ -18,7 +28,7 @@ if (array_key_exists($_SESSION["logged"],$USN)) {
 	<body>
 		<center>
 		<p>
-			Simple login & register - version 1.1<BR>
+			Simple login & register - version 1.2<BR>
 			Made by <a href='https://github.com/mnrds'>mnrds</a>
 		</p>
 		<p>
@@ -26,6 +36,11 @@ if (array_key_exists($_SESSION["logged"],$USN)) {
 		</p>
 		<p>
 		- Place your content here -
+		</p>
+		<p>You need to login to see this: <a href='page2.html'>page</a>. </p>
+		<p>
+    		<form action='{$_SERVER['PHP_SELF']}' method='post'><input type='hidden' name='out' value='outter'> 
+    		<input type='submit' value='Logout' onClick='window.location.reload()'/></form>
 		</p>
 
 	<footer>
@@ -39,7 +54,7 @@ if (array_key_exists($_SESSION["logged"],$USN)) {
      die;
 
 } else {
-    echo "<!DOCTYPE html>
+	echo "<!DOCTYPE html>
 	<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
 	<head>
 		<meta http-equiv='content-type' content='text/html;charset=utf-8' />
@@ -58,13 +73,14 @@ if (array_key_exists($_SESSION["logged"],$USN)) {
 	</head>
 	<body>
 		<center>
-		<h3>Simple login & register - version 1.1</h3>
+		<h3>Simple login & register - version 1.2</h3>
 		<p>
 		Made by <a href='https://github.com/mnrds'>mnrds</a>
 		</p>
 		<p>You can create account and login. <br>
 		Use <b>'CODE1'</b> for invitation code to register. <br>
-		See source code for this project <a href='https://github.com/mnrds/PHP-Simple_LoginSystem'>here</a>. 
+		See source code for this project <a href='https://github.com/mnrds/PHP-Simple_LoginSystem'>here</a>. <br>
+		<p>You need to login to see this: <a href='page2.html'>page</a>. </p>
 		</p>
 	
 	<div id='div2' style='width:250px;height:300px;display:none;background-color:white;'>
@@ -72,7 +88,7 @@ if (array_key_exists($_SESSION["logged"],$USN)) {
     <label for='username'></label><input type='text' name='username' value='Username' /><br>
     <label for='password'></label><input type='password' name='password' value='Password'/><br>
 	<div class='error'>$userError</div><br>
-    <input type='submit' value='Login' /></form>
+    <input type='submit' value='Login' onClick='window.location.reload()'/></form>
 	
 	<p>New user? <br><button>Register</button></p>
 

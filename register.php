@@ -2,7 +2,7 @@
 	// Simple PHP LoginSystem
 	// by mnrds
 	//
-	// Version 1.1
+	// Version 1.2
 	// https://github.com/mnrds/PHP-Simple_LoginSystem
 	// ----------------------------------------------------------
 
@@ -29,20 +29,20 @@
 		exit(); 
 	}
 	
-	// check if name only contains letters and whitespace
+	// check if name only contains letters, numbers and whitespace
 	// Username check
 	if (!preg_match("/^[a-z0-9.]+$/i",$acc2)) {
-		echo "Only letters and white space allowed. ";
+		echo "Only letters, numbers and white space allowed. ";
 		exit();
     	}
     	// Password check
 	if (!preg_match("/^[a-z0-9.]+$/i",$pass2)) {
-		echo "Only letters and white space allowed. ";
+		echo "Only letters, numbers and white space allowed. ";
 		exit();
 	}
 	
 	// Coocie check (spamprotect)
-	if(isset($_COOKIE['m666'])) { 
+	if(isset($_COOKIE['creg'])) { 
 		echo "Stop spamming. "; exit(); 
 	}
 	
@@ -55,7 +55,7 @@
 	if(($rcode) != $ccode)  { echo "Error: Wrong code."; exit(); }
 	
 	// 2min spam time
-  	setcookie("m666", m666, time()+120);
+  	setcookie("creg", creg, time()+120);
 	
 	// Adding style
 	$logit2 = "\n$";
