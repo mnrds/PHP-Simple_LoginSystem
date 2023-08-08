@@ -1,14 +1,14 @@
- - Simple PHP Login System - 
+ - Simple PHP Login System, no databases - 
 
 
 Made by: mnrds
 Version: 1.2 (22.7.2016)
 Licence: GPL-2.0+
 Tested: PHP 5.2.
-Demo: http://tinyurl.com/simplePHPlogin
 
 
 Description:
+I made this in year 2016 to as a practise html/php -project. I dont recomend to use this on your websites. 
 Simple Login System for websites. Works without MySQL database. 
 Site uses cookies and saves account data to 'acc_list.php' file. 
 
